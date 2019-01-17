@@ -25,13 +25,13 @@
 
 import UIKit
 
-class WCLShineClickLayer: CALayer {
+public class WCLShineClickLayer: CALayer {
     
-    var color: UIColor = UIColor.lightGray
+    public var color: UIColor = UIColor.lightGray
     
-    var fillColor: UIColor = UIColor(rgb: (255, 102, 102))
+    public var fillColor: UIColor = UIColor(rgb: (255, 102, 102))
     
-    var image: WCLShineImage = .heart {
+    public var image: WCLShineImage = .heart {
         didSet {
             if image.isDefaultAndSelect() {
                 mask     = nil
@@ -43,9 +43,9 @@ class WCLShineClickLayer: CALayer {
         }
     }
     
-    var animDuration: Double = 0.5
+    public var animDuration: Double = 0.5
     
-    var clicked: Bool = false {
+    public var clicked: Bool = false {
         didSet {
             if image.isDefaultAndSelect() {
                 backgroundColor = UIColor.clear.cgColor
@@ -67,7 +67,7 @@ class WCLShineClickLayer: CALayer {
     let maskLayer = CALayer()
     
     //MARK: Public Methods
-    func startAnim() {
+    public func startAnim() {
         let anim = CAKeyframeAnimation(keyPath: "transform.scale")
         anim.duration  = animDuration
         anim.values = [0.4, 1, 0.9, 1]
@@ -80,7 +80,7 @@ class WCLShineClickLayer: CALayer {
     }
     
     //MARK: Override
-    override func layoutSublayers() {
+    override public func layoutSublayers() {
         if image.isDefaultAndSelect() {
             backgroundColor = UIColor.clear.cgColor
         }else {

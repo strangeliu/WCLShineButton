@@ -25,24 +25,24 @@
 
 import UIKit
 
-class WCLShineLayer: CALayer, CAAnimationDelegate {
+public class WCLShineLayer: CALayer, CAAnimationDelegate {
     
     let shapeLayer =  CAShapeLayer()
     
-    var fillColor: UIColor = UIColor(rgb: (255, 102, 102)) {
+    public var fillColor: UIColor = UIColor(rgb: (255, 102, 102)) {
         willSet {
             shapeLayer.strokeColor = newValue.cgColor
         }
     }
     
-    var params: WCLShineParams = WCLShineParams()
+    public var params: WCLShineParams = WCLShineParams()
     
     var displaylink: CADisplayLink?
     
-    var endAnim: (()->Void)?
+    public var endAnim: (()->Void)?
     
     //MARK: Public Methods
-    func startAnim() {
+    public func startAnim() {
         let anim = CAKeyframeAnimation(keyPath: "path")
         anim.duration = params.animDuration * 0.1
         let size = frame.size
@@ -61,12 +61,12 @@ class WCLShineLayer: CALayer, CAAnimationDelegate {
     
     
     //MARK: Initial Methods
-    override init() {
+    public override init() {
         super.init()
         initLayers()
     }
     
-    override init(layer: Any) {
+    public override init(layer: Any) {
         super.init(layer: layer)
         initLayers()
     }
@@ -99,7 +99,7 @@ class WCLShineLayer: CALayer, CAAnimationDelegate {
     }
     
     //MARK: CAAnimationDelegate
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if flag {
             displaylink?.invalidate()
             displaylink = nil
