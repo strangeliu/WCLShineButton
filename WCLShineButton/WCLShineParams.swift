@@ -77,7 +77,7 @@ public enum WCLShineImage {
     case custom(UIImage)
     case defaultAndSelect(UIImage, UIImage)
     
-    func getImages() -> [UIImage] {
+    public func getImages() -> [UIImage] {
         switch self {
         case .heart:
             return [WCLShineBundle.imageFromBundle("heart")]
@@ -94,11 +94,11 @@ public enum WCLShineImage {
         }
     }
     
-    func isDefaultAndSelect() -> Bool {
+    public func isDefaultAndSelect() -> Bool {
         return self.getValue() == 5
     }
     
-    func getValue() -> Int {
+    public func getValue() -> Int {
         switch self {
         case .heart:
             return 0

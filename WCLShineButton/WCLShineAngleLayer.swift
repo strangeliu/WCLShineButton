@@ -25,7 +25,7 @@
 
 import UIKit
 
-class WCLShineAngleLayer: CALayer, CAAnimationDelegate {
+public class WCLShineAngleLayer: CALayer, CAAnimationDelegate {
     
     var params: WCLShineParams = WCLShineParams()
     
@@ -36,7 +36,7 @@ class WCLShineAngleLayer: CALayer, CAAnimationDelegate {
     var displaylink: CADisplayLink?
     
     //MARK: Initial Methods
-    init(frame: CGRect, params: WCLShineParams) {
+    public init(frame: CGRect, params: WCLShineParams) {
         super.init()
         self.frame = frame
         self.params = params
@@ -48,7 +48,7 @@ class WCLShineAngleLayer: CALayer, CAAnimationDelegate {
     }
     
     //MARK: Public Methods
-    func startAnim() {
+    public func startAnim() {
         let radius = frame.size.width/2 * CGFloat(params.shineDistanceMultiple*1.4)
         var startAngle: CGFloat = 0
         let angle = CGFloat(Double.pi*2/Double(params.shineCount)) + startAngle
@@ -203,7 +203,7 @@ class WCLShineAngleLayer: CALayer, CAAnimationDelegate {
     }
     
     //MARK: CAAnimationDelegate
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if flag {
             displaylink?.invalidate()
             displaylink = nil
